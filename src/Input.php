@@ -15,9 +15,9 @@ class Input extends Base
      *
      * @return void
      */
-    public function setup(): void
+    public function setup(string $name = null, $default = null): void
     {
-        parent::setup();
+        parent::setup($name, $default);
 
         $this->casts['required'] = 'bool';
     }

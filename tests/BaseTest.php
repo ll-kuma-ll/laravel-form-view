@@ -8,6 +8,24 @@ use PHPUnit\Framework\TestCase;
 class BaseTest extends TestCase
 {
     /**
+     * コンストラクタテスト
+     * 
+     * @return void
+     */
+    public function testConstruct(): void
+    {
+        $ins = new class('test name', 'test value') extends Base {};
+        $attributes = new \ReflectionProperty($ins, 'attributes');
+        $attributes->setAccessible(true);
+        $assert = $attributes->getValue($ins);
+
+        $this->assertArrayHasKey('name', $assert);
+        $this->assertEquals('test name', $assert['name']);
+        $this->assertArrayHasKey('value', $assert);
+        $this->assertEquals('test value', $assert['value']);
+    }
+
+    /**
      * 初期化処理テスト
      * -----
      * コンストラクタから呼ばれ、プロパティの初期化処理が実行されるか検証
@@ -26,6 +44,8 @@ class BaseTest extends TestCase
         $expected = [
             'class' => [],
             'disabled' => false,
+            'name' => null,
+            'value' => null,
         ];
         $actual = $attribbutes->getValue($mock);
         $this->assertEquals($expected, $actual);
@@ -37,6 +57,12 @@ class BaseTest extends TestCase
         ];
         $actual = $casts->getValue($mock);
         $this->assertEquals($expected, $actual);
+
+        // 引数あり
+        $expected['name'] = 'test name';
+        $expected['value'] = 'default value';
+        $mock->setup('test name', 'default value');
+        $actual = $attribbutes->getValue($mock);
     }
 
     /**
@@ -55,6 +81,8 @@ class BaseTest extends TestCase
         $expected = [
             'class' => [],
             'disabled' => false,
+            'name' => null,
+            'value' => null,
             'test_key' => 'sample'
         ];
         $mock->setAttribute('testKey', $expected['test_key']);
@@ -82,7 +110,7 @@ class BaseTest extends TestCase
     public function testPushAttribute(): void
     {
         $mock = new class extends Base {
-            public function setup(): void
+            public function setup(string $name = null, $default = null): void
             {
                 parent::setup();
                 $this->casts['test_string'] = 'string';
@@ -167,6 +195,8 @@ class BaseTest extends TestCase
         $expected = [
             'class' => [],
             'disabled' => false,
+            'name' => null,
+            'value' => null,
             'test_attr' => 'Test set attribute',
         ];
         $mock->test_attr = $expected['test_attr'];
@@ -196,9 +226,9 @@ class BaseTest extends TestCase
     public function testGetter(): void
     {
         $mock = new class extends Base {
-            public function setup(): void
+            public function setup(string $name = null, $default = null): void
             {
-                parent::setup();
+                parent::setup($name, $default);
                 $this->attributes['test_attr'] = 'test attribute data';
             }
             public function getCustomMethodAttribute()

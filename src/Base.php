@@ -27,10 +27,12 @@ abstract class Base
     /**
      * コンストラクター
      *
+     * @param string $name  name属性
+     * @param mixed  $value value属性
      */
-    public function __construct()
+    public function __construct(string $name = null, $default = null)
     {
-        $this->setup();
+        $this->setup($name, $default);
     }
 
     /**
@@ -38,10 +40,12 @@ abstract class Base
      *
      * @return void
      */
-    protected function setup(): void
+    protected function setup(string $name = null, $default = null): void
     {
         $this->attributes['class'] = [];
         $this->attributes['disabled'] = false;
+        $this->attributes['name'] = $name;
+        $this->attributes['value'] = $default;
 
         $this->casts['class'] = 'array';
         $this->casts['disabled'] = 'bool';
