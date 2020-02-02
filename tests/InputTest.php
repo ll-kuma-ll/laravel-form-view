@@ -2,14 +2,22 @@
 
 namespace LLkumaLL\FormView\Tests;
 
-use Illuminate\Contracts\View\Engine;
-use Illuminate\View\Factory;
-use Illuminate\View\View;
+use LLkumaLL\FormView\Contracts\Input as ContractsInput;
 use PHPUnit\Framework\TestCase;
 use LLkumaLL\FormView\Input;
 
 class InputTest extends TestCase
 {
+    /**
+     * インターフェース実装テスト
+     * 
+     * @return void
+     */
+    public function testIsSubclassOf(): void
+    {
+        $this->assertTrue(is_subclass_of(Input::class, ContractsInput::class));
+    }
+
     /**
      * setupテスト
      * 

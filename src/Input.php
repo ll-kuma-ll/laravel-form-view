@@ -6,7 +6,7 @@ namespace LLkumaLL\FormView;
  * 入力系総合クラス
  *
  */
-class Input extends Base
+class Input extends Base implements Contracts\Input
 {
     use Foundations\ValueByModelAndUser;
 

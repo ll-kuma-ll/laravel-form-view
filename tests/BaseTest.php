@@ -3,10 +3,21 @@
 namespace LLkumaLL\FormView\Tests;
 
 use LLkumaLL\FormView\Base;
+use LLkumaLL\FormView\Contracts\Base as ContractsBase;
 use PHPUnit\Framework\TestCase;
 
 class BaseTest extends TestCase
 {
+    /**
+     * インターフェース実装テスト
+     * 
+     * @return void
+     */
+    public function testIsSubclassOf(): void
+    {
+        $this->assertTrue(is_subclass_of(Base::class, ContractsBase::class));
+    }
+
     /**
      * コンストラクタテスト
      * 

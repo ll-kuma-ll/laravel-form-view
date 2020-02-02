@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
  * 基底クラス
  *
  */
-abstract class Base
+abstract class Base implements Contracts\Base
 {
     /**
      * 属性データ
