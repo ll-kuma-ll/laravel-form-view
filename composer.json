@@ -1,6 +1,7 @@
 {
     "name": "ll-kuma-ll/laravel-form-view",
     "description": "The Form View for Laravel",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "LLkumaLL\\FormView\\": "src"
