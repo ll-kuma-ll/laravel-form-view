@@ -11,6 +11,13 @@ class Input extends Base implements Contracts\Input
     use Foundations\ValueByModelAndUser;
 
     /**
+     * ユニークキー
+     * 
+     * @var string
+     */
+    protected $uniqId = '';
+
+    /**
      * 初期化
      *
      * @return void
@@ -20,6 +27,7 @@ class Input extends Base implements Contracts\Input
         parent::setup($name, $default);
 
         $this->casts['required'] = 'bool';
+        $this->uniqId = uniqid();
     }
 
     /**
@@ -29,6 +37,6 @@ class Input extends Base implements Contracts\Input
      */
     public function getIdAttribute(): string
     {
-        return $this->getAttribute('id', 'input_'.$this->getAttribute('name', uniqid()));
+        return $this->getAttribute('id', 'input_'.$this->getAttribute('name', $this->uniqId));
     }
 }
