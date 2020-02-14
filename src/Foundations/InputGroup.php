@@ -2,14 +2,34 @@
 
 namespace LLkumaLL\FormView\Foundations;
 
+use LLkumaLL\FormView\Contracts\InputText;
+
 /**
  * input-group機能トレイト
  *
  */
 trait InputGroup
 {
+    /**
+     * 左側
+     * 
+     * @var array
+     */
     protected $inputGroupPrepends = [];
+
+    /**
+     * 右側
+     * 
+     * @var array
+     */
     protected $inputGroupAppends = [];
+
+    /**
+     * 複数入力
+     * 
+     * @var array
+     */
+    protected $inputGroupMultiples = [];
 
     /**
      * 入力フォーム左側にパーツ設定
@@ -75,6 +95,40 @@ trait InputGroup
     public function addInputGroupAppend($inputGroup): self
     {
         $this->inputGroupAppends[] = $inputGroup;
+
+        return $this;
+    }
+
+    /**
+     * 複数入力設定
+     * 
+     * @param  mixed $inputs
+     * @return void
+     */
+    public function setInputGroupMultiplesAttribute($inputs): void
+    {
+        $this->inputGroupMultiples = is_array($inputs) ? $inputs : [$inputs];
+    }
+
+    /**
+     * 複数入力取得
+     * 
+     * @return array
+     */
+    public function getInputGroupMultiplesAttribute(): array
+    {
+        return $this->inputGroupMultiples;
+    }
+
+    /**
+     * 複数入力追加
+     * 
+     * @param  \LLkumaLL\FormView\Contracts\InputText $input
+     * @return self
+     */
+    public function addInputGroupMultiple(InputText $input): self
+    {
+        $this->inputGroupMultiples[] = $input;
 
         return $this;
     }

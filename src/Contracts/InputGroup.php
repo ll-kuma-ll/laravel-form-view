@@ -41,6 +41,29 @@ interface InputGroup
     public function addInputGroupAppend($inputGroup);
 
     /**
+     * 複数入力設定
+     * 
+     * @param  mixed $inputs
+     * @return void
+     */
+    public function setInputGroupMultiplesAttribute($inputs): void;
+
+    /**
+     * 複数入力取得
+     * 
+     * @return array
+     */
+    public function getInputGroupMultiplesAttribute(): array;
+
+    /**
+     * 複数入力追加
+     * 
+     * @param  \LLkumaLL\FormView\InputText $input
+     * @return self
+     */
+    public function addInputGroupMultiple(InputText $input);
+
+    /**
      * 入力フォームに追加パーツを利用するか判定
      *
      * @return bool

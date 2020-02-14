@@ -3,7 +3,9 @@
 namespace LLkumaLL\FormView\Tests\Foundations;
 
 use LLkumaLL\FormView\Foundations\InputGroup;
+use LLkumaLL\FormView\InputText;
 use PHPUnit\Framework\TestCase;
+use Mockery as M;
 
 class InputGroupTest extends TestCase
 {
@@ -77,5 +79,24 @@ class InputGroupTest extends TestCase
         $this->assertEquals(['prepend'], $mock->getInputGroupPrependsAttribute());
         $this->assertEquals(['append'], $mock->getInputGroupAppendsAttribute());
         $this->assertTrue($mock->getUseInputGroupAttribute());
+    }
+
+    /**
+     * 複数入力設定テスト
+     * 
+     * @return void
+     */
+    public function testInputGroupMultiple(): void
+    {
+        $input = M::mock(InputText::class);
+        $mock = $this->getMockForTrait(InputGroup::class);
+        $mock->setInputGroupMultiplesAttribute($input);
+        $this->assertEquals([$input], $mock->getInputGroupMultiplesAttribute());
+
+        $mock->setInputGroupMultiplesAttribute([$input]);
+        $this->assertEquals([$input], $mock->getInputGroupMultiplesAttribute());
+
+        $mock->addInputGroupMultiple($input);
+        $this->assertEquals([$input, $input], $mock->getInputGroupMultiplesAttribute());
     }
 }
