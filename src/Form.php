@@ -2,13 +2,16 @@
 
 namespace LLkumaLL\FormView;
 
-use LLkumaLL\FormView\Contracts\Input;
+use LLkumaLL\FormView\Contracts\{
+    Form as ContractsForm,
+    Input
+};
 
 /**
  * フォーム
  * 
  */
-class Form extends Base
+class Form extends Base implements ContractsForm
 {
     /**
      * 各入力項目インスタンス配列
