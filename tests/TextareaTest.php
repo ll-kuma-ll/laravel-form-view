@@ -4,7 +4,7 @@ namespace LLkumaLL\FormView\Tests;
 
 use LLkumaLL\FormView\{
     Input,
-    TextArea
+    Textarea
 };
 use LLkumaLL\FormView\Contracts\{
     InputGroup,
@@ -21,8 +21,8 @@ class TextareaTest extends TestCase
      */
     public function testIsSbuclassOf(): void
     {
-        $this->assertTrue(is_subclass_of(TextArea::class, Input::class));
-        $this->assertTrue(is_subclass_of(TextArea::class, ContractsTextarea::class));
-        $this->assertTrue(is_subclass_of(TextArea::class, InputGroup::class));
+        $this->assertTrue(is_subclass_of(Textarea::class, Input::class));
+        $this->assertTrue(is_subclass_of(Textarea::class, ContractsTextarea::class));
+        $this->assertTrue(is_subclass_of(Textarea::class, InputGroup::class));
     }
 }
