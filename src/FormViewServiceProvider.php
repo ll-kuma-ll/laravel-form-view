@@ -36,6 +36,8 @@ class FormViewServiceProvider extends ServiceProvider
         $this->app->bind(ContractInputPassword::class, InputPassword::class);
         $this->app->bind(ContractInputRadio::class, InputRadio::class);
         $this->app->bind(ContractInputText::class, InputText::class);
+        $this->app->bind(ContractTextArea::class, TextArea::class);
+        $this->app->bind(ContractSelect::class, Select::class);
     }
 
     /**
