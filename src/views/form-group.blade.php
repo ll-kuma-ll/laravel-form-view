@@ -28,7 +28,7 @@
         @includeWhen($input instanceof TextArea, 'form-view::textarea')
         @includeWhen($input instanceof InputRadio, 'form-view::input-radio')
         @includeWhen($input instanceof InputCheckbox, 'form-view::input-checkbox')
-        @includeWhen($input instanceof Select || $input instanceof SelectMultiple, 'form-view::select');
+        @includeWhen($input instanceof Select || $input instanceof SelectMultiple, 'form-view::select')
 
         @error ($input->name)
             <div class="invalid-feedback">{{ $error }}</div>
