@@ -7,6 +7,7 @@ use LLkumaLL\FormView\Contracts\{
     Form as ContractForm,
     Input as ContractInput,
     InputCheckbox as ContractInputCheckbox,
+    InputDate as ContractInputDate,
     InputHidden as ContractInputHidden,
     InputPassword as ContractInputPassword,
     InputRadio as ContractInputRadio,
@@ -32,6 +33,7 @@ class FormViewServiceProvider extends ServiceProvider
         $this->app->bind(ContractForm::class, Form::class);
         $this->app->bind(ContractInput::class, Input::class);
         $this->app->bind(ContractInputCheckbox::class, InputCheckbox::class);
+        $this->app->bind(ContractInputDate::class, InputDate::class);
         $this->app->bind(ContractInputHidden::class, InputHidden::class);
         $this->app->bind(ContractInputPassword::class, InputPassword::class);
         $this->app->bind(ContractInputRadio::class, InputRadio::class);
