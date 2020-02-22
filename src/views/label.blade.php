@@ -10,7 +10,7 @@
     <label for="{{ $input->id }}" class="@if($input->horizontal) col-sm-{{ 12 - $input->horizontal }} @endif">
         {{ $input->label }}
         @if ($input->required)
-            <span class="badge badge-warning">{{ __('form-view::required') }}</span>
+            <span class="badge badge-warning">{{ __('form-view::messages.required') }}</span>
         @endif
     </label>
 @endif
