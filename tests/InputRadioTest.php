@@ -29,4 +29,15 @@ class InputRadioTest extends TestCase
         $this->assertTrue($ins->isSelected('selected'));
         $this->assertFalse($ins->isSelected('unselected'));
     }
+
+    /**
+     * type属性テスト
+     * 
+     * @return void
+     */
+    public function testType(): void
+    {
+        $ins = new InputRadio;
+        $this->assertEquals('radio', $ins->type);
+    }
 }

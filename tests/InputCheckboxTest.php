@@ -29,4 +29,15 @@ class InputCheckboxTest extends TestCase
         $this->assertTrue($ins->isSelected('selected2'));
         $this->assertFalse($ins->isSelected('unselected'));
     }
+
+    /**
+     * type属性テスト
+     * 
+     * @return void
+     */
+    public function testType(): void
+    {
+        $ins = new InputCheckbox();
+        $this->assertEquals('checkbox', $ins->type);
+    }
 }
