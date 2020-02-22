@@ -52,5 +52,6 @@ class FormViewServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__.'/views', 'form-view');
+        $this->loadTranslationsFrom(__DIR__.'/lang', 'form-view');
     }
 }
