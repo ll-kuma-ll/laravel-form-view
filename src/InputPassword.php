@@ -11,9 +11,14 @@ use LLkumaLL\FormView\Contracts\InputPassword as ContractsInputPassword;
 class InputPassword extends InputText implements ContractsInputPassword
 {
     /**
-     * type属性固定化
-     * 
-     * @var text
+     * 初期化
+     *
+     * @return void
      */
-    protected $type = 'password';
+    public function setup(string $name = null, $default = null): void
+    {
+        parent::setup($name, $default);
+
+        $this->type = 'password';
+    }
 }

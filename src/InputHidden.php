@@ -9,9 +9,16 @@ namespace LLkumaLL\FormView;
 class InputHidden extends InputText implements Contracts\InputHidden
 {
     /**
-     * type属性固定化
-     * 
-     * @var string
+     * 初期化
+     *
+     * @param  string $name
+     * @param  mixed  $value
+     * @return void
      */
-    protected $type = 'hidden';
+    public function setup(string $name = null, $default = null): void
+    {
+        parent::setup($name, $default);
+
+        $this->type = 'hidden';
+    }
 }

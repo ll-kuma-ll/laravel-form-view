@@ -17,7 +17,7 @@ class InputText extends Input implements Contracts\InputText
      */
     public function getTypeAttribute(): string
     {
-        return property_exists($this, 'type') ? $this->type : 'text';
+        return $this->getAttribute('type') ?: 'text';
     }
 
     /**

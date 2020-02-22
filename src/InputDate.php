@@ -9,9 +9,16 @@ namespace LLkumaLL\FormView;
 class InputDate extends InputText implements Contracts\InputDate
 {
     /**
-     * type属性
-     * 
-     * @var string
+     * 初期化
+     *
+     * @param  string $name
+     * @param  mixed  $value
+     * @return void
      */
-    protected $type = 'date';
+    public function setup(string $name = null, $default = null): void
+    {
+        parent::setup($name, $default);
+
+        $this->type = 'date';
+    }
 }
