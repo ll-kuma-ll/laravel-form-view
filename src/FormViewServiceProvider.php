@@ -4,6 +4,7 @@ namespace LLkumaLL\FormView;
 
 use Illuminate\Support\ServiceProvider;
 use LLkumaLL\FormView\Contracts\{
+    Button as ContractButton,
     Form as ContractForm,
     Input as ContractInput,
     InputCheckbox as ContractInputCheckbox,
@@ -31,6 +32,7 @@ class FormViewServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(ContractForm::class, Form::class);
+        $this->app->bind(ContractButton::class, Button::class);
         $this->app->bind(ContractInput::class, Input::class);
         $this->app->bind(ContractInputCheckbox::class, InputCheckbox::class);
         $this->app->bind(ContractInputDate::class, InputDate::class);
