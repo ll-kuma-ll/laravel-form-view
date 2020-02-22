@@ -11,7 +11,7 @@
         InputText,
         Select,
         SelectMultiple,
-        TextArea
+        Textarea
     };
 @endphp
 @if (is_array($input))
@@ -25,7 +25,7 @@
 @else
     <div class="form-group @isset($col) col-12 col-md-{{ $col }} @endisset @if($input->horizontal) row @endif">
         @includeWhen($input instanceof InputText, 'form-view::input-text')
-        @includeWhen($input instanceof TextArea, 'form-view::textarea')
+        @includeWhen($input instanceof Textarea, 'form-view::textarea')
         @includeWhen($input instanceof InputRadio, 'form-view::input-radio')
         @includeWhen($input instanceof InputCheckbox, 'form-view::input-checkbox')
         @includeWhen($input instanceof Select || $input instanceof SelectMultiple, 'form-view::select')

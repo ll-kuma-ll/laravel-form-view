@@ -1,3 +1,12 @@
-@include('includes.forms.label')
-<textarea class="form-control" name="{{ $input->name }}" id="{{ $input->id }}">{{ $input->value }}</textarea>
-@includeWhen(!empty($input->text), 'view.name', ['some' => 'data'])
+@php
+    /*
+     |--------------------------
+     |    複数行テキスト入力
+     |--------------------------
+     | @param \LLkumaLL\FormView\Contracts\Textarea $input
+     */
+@endphp
+@include('form-view::label')
+@component('form-view::components.input-group', ['input' => $input])
+    <textarea class="form-control {{ $input->class }}@error($input->name) is-invalid @enderror" name="{{ $input->name }}" id="{{ $input->id }}">{{ $input->value }}</textarea>
+@endcomponent
