@@ -31,7 +31,7 @@
         @includeWhen($input instanceof Select || $input instanceof SelectMultiple, 'form-view::select')
 
         @error ($input->name)
-            <div class="invalid-feedback">{{ $error }}</div>
+            <div class="invalid-feedback">{{ $message }}</div>
         @enderror
         @if (!empty($input->comment))
             <small class="form-text text-muted">{{ $input->comment }}</small>
