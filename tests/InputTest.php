@@ -50,4 +50,23 @@ class InputTest extends TestCase
         $ins->id('test_id');
         $this->assertEquals('test_id', $ins->getIdAttribute());
     }
+
+    /**
+     * col値設定テスト
+     *
+     * @return void
+     */
+    public function testColAttribute(): void
+    {
+        $col = new \ReflectionProperty(Input::class, 'col');
+        $col->setAccessible(true);
+
+        $expected = 3;
+        $ins = new Input;
+        $ins->setColAttribute($expected);
+        $actual = $col->getValue($ins);
+
+        $this->assertEquals($expected, $actual);
+        $this->assertEquals($expected, $ins->getColAttribute());
+    }
 }

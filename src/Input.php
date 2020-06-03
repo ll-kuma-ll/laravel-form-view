@@ -18,6 +18,13 @@ class Input extends Base implements Contracts\Input
     protected $uniqId = '';
 
     /**
+     * GRID col指定値
+     *
+     * @var int
+     */
+    protected $col = null;
+
+    /**
      * 初期化
      *
      * @return void
@@ -38,5 +45,26 @@ class Input extends Base implements Contracts\Input
     public function getIdAttribute(): string
     {
         return $this->getAttribute('id', 'input_'.$this->getAttribute('name', $this->uniqId));
+    }
+
+    /**
+     * col値設定
+     *
+     * @param  int $col
+     * @return void
+     */
+    public function setColAttribute(int $col): void
+    {
+        $this->col = $col;
+    }
+
+    /**
+     * col設定
+     *
+     * @return int
+     */
+    public function getColAttribute(): ?int
+    {
+        return $this->col;
     }
 }

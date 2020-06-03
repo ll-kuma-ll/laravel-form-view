@@ -17,7 +17,7 @@
 @if (is_array($input))
     <div class="form-row">
         @foreach ($input as $item)
-            @include('form-view::form-group', ['input' => $item, 'col' => floor(12 / count($input))])
+            @include('form-view::form-group', ['input' => $item, 'col' => $item->col ?? floor(12 / count($input))])
         @endforeach
     </div>
 @elseif ($input instanceof InputText && $input->type == 'hidden')
