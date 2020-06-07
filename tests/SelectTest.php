@@ -7,6 +7,7 @@ use LLkumaLL\FormView\{
     Select
 };
 use LLkumaLL\FormView\Contracts\{
+    InputGroup,
     Select as ContractsSelect,
     SingleChoice
 };
@@ -24,5 +25,6 @@ class SelectTest extends TestCase
         $this->assertTrue(is_subclass_of(Select::class, Input::class));
         $this->assertTrue(is_subclass_of(Select::class, ContractsSelect::class));
         $this->assertTrue(is_subclass_of(Select::class, SingleChoice::class));
+        $this->assertTrue(is_subclass_of(Select::class, InputGroup::class));
     }
 }

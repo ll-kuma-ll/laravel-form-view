@@ -8,5 +8,5 @@ namespace LLkumaLL\FormView;
  */
 class Select extends Input implements \IteratorAggregate, Contracts\Select
 {
-    use Foundations\SingleChoice;
+    use Foundations\SingleChoice, Foundations\InputGroup;
 }
