@@ -1,7 +1,7 @@
 @php
     /*
      |-----------------------------------
-     |    input-group cコンポーネント
+     |    input-group コンポーネント
      |-----------------------------------
      | @param \LLkumaLL\FormView\Contracts\InputText|\LLkumaLL\FromView\Contracts\Textarea $input
      */
