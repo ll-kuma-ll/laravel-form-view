@@ -2,6 +2,7 @@
 
 namespace LLkumaLL\FormView\Tests;
 
+use Carbon\Carbon;
 use LLkumaLL\FormView\Contracts\InputDateTime as ContractsInputDateTime;
 use LLkumaLL\FormView\{
     InputDateTime,
@@ -31,5 +32,24 @@ class InputDateTimeTest extends TestCase
     {
         $ins = new InputDateTime;
         $this->assertEquals('datetime-local', $ins->type);
+    }
+
+    /**
+     * value属性取得テスト
+     *
+     * @return void
+     */
+    public function testGetValueAttribute(): void
+    {
+        $date = Carbon::now();
+        $model = new \stdClass;
+        $model->test_datetime = $date;
+
+        $ins = (new InputDateTime('test_datetime'))->value($model);
+        $this->assertIsString($ins->value);
+        $this->assertEquals($date->toDateTimeString(), $ins->value);
+
+        $ins->value('string');
+        $this->assertEquals('string', $ins->value);
     }
 }
