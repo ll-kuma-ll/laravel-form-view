@@ -2,6 +2,7 @@
 
 namespace LLkumaLL\FormView\Tests;
 
+use Carbon\Carbon;
 use LLkumaLL\FormView\{
     InputDate,
     InputText
@@ -31,5 +32,24 @@ class InputDateTest extends TestCase
     {
         $actual = (new InputDate)->type;
         $this->assertEquals('date', $actual);
+    }
+
+    /**
+     * value属性取得テスト
+     *
+     * @return void
+     */
+    public function testGetValueAttribute(): void
+    {
+        $date = Carbon::today();
+        $model = new \stdClass;
+        $model->test_date = $date;
+
+        $ins = (new InputDate('test_date'))->value($model);
+        $this->assertIsString($ins->value);
+        $this->assertEquals($date->toDateString(), $ins->value);
+
+        $ins->value('string');
+        $this->assertEquals('string', $ins->value);
     }
 }
