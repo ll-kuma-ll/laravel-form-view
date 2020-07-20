@@ -2,6 +2,7 @@
 
 namespace LLkumaLL\FormView;
 
+use Carbon\Carbon;
 use LLkumaLL\FormView\Contracts\InputTime as ContractsInputTime;
 
 /**
@@ -22,5 +23,17 @@ class InputTime extends InputText implements ContractsInputTime
         parent::setup($name, $default);
 
         $this->type = 'time';
+    }
+
+    /**
+     * value属性取得
+     *
+     * @return string|null
+     */
+    public function getValueAttribute(): ?string
+    {
+        $value = $this->getAttribute('value');
+
+        return is_object($value) && $value instanceof Carbon ? $value->toTimeString() : $value;
     }
 }
