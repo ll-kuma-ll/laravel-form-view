@@ -6,4 +6,5 @@
             <label class="form-check-label" for="{{ $input->id }}_{{ $loop->index }}">{{ $label }}</label>
         </div>
     @endforeach
+    @include('form-view::includes.invalid-feedback')
 </div>

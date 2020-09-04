@@ -9,4 +9,5 @@
 @include('form-view::label')
 @component('form-view::components.input-group', ['input' => $input])
     @include('form-view::includes.input-text')
+    @include('form-view::includes.invalid-feedback')
 @endcomponent
